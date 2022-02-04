@@ -31,13 +31,6 @@ def mostrar_notas(request):
 
 
 def listar_promedionotas(request):
-    #todaslasnotasynombres = Alumno_Curso_Prueba.objects.all().order_by("nota")
-    # notass = Alumno_Curso_Prueba.objects.filter(
-    #    nota__lte=4, alumno_curso__alumno__nombre="Adam")
-    # notass = Alumno_Curso_Prueba.objects.filter(
-    #    nota__lte=4)
-
-    #notasss = Alumno_Curso_Prueba.objects.filter(nota__lte=4)
     querysett = Alumno_Curso_Prueba.objects.values(
         "alumno_curso__alumno__nombre", "alumno_curso__curso__nombre_curso").annotate(Avg("nota"))
     queryset = list(querysett)
