@@ -44,6 +44,8 @@ class Alumno_Curso(models.Model):
 
 class Prueba(models.Model):
     nombre_prueba = models.CharField(max_length=60)
+    curso = models.ForeignKey(
+        Curso, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.nombre_prueba

@@ -5,19 +5,19 @@ from core.models import Alumno, Alumno_Curso, Alumno_Curso_Prueba, Profesor, Pru
 
 
 def mostrar_alumnos(request):
-    alumnos = Alumno.objects.all().order_by("name")
+    alumnos = Alumno.objects.all().order_by("nombre")
     context = {"alumnos": alumnos}
     return render(request, 'core/alumnos.html', context)
 
 
 def mostrar_cursos(request):
-    cursos = Curso.objects.all().order_by("name")
+    cursos = Curso.objects.all().order_by("nombre_curso")
     context = {"cursos": cursos}
     return render(request, 'core/cursos.html', context)
 
 
 def mostrar_pruebas(request):
-    pruebas = Prueba.objects.all().order_by("name")
+    pruebas = Prueba.objects.all().order_by("nombre_prueba")
     context = {"pruebas": pruebas}
     return render(request, 'core/pruebas.html', context)
 
