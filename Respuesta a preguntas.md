@@ -57,7 +57,21 @@ ON DELETE NO ACTION ON UPDATE NO ACTION
 
 P1=
 
+SELECT nombre, nombre_curso
+FROM core_alumno
+INNER JOIN core_alumno_curso ON core_alumno.id=core_alumno_curso.alumno_id
+INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
+WHERE nombre_curso='programacion';
+
 P2=
+
+SELECT nombre, nombre_curso, ROUND(AVG(nota)::numeric, 1)
+FROM core_alumno
+INNER JOIN core_alumno_curso ON core_alumno.id=core_alumno_curso.alumno_id
+INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
+INNER JOIN core_alumno_curso_prueba ON core_alumno_curso.id=core_alumno_curso_prueba.alumno_curso_id
+WHERE core_alumno.id=1 and nombre_curso='programación'
+GROUP BY nombre, nombre_curso;
 
 P3=
 
@@ -77,4 +91,4 @@ INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
 INNER JOIN core_alumno_curso_prueba ON core_alumno_curso.id=core_alumno_curso_prueba.alumno_curso_id
 WHERE nota<4 GROUP BY nombre, nombre_curso HAVING COUNT(nombre)>1;
 
-P5= B) 190... Esto se debe ya que al hacer consultas multitablas sin join se obtienen productos cartesianos. Sin el where, serian 400 registros, pero con el where se reducen a 19 registros para el de mejor posicion, 18 para el siguiente, y asi sucesivamente (n-1)\* n/2= 190.
+P5= B) 190... Esto se debe ya que al hacer consultas multitablas sin join se obtienen productos cartesianos. Sin el where, serian 400 registros, pero con el where se reducen a 19 registros para el de mejor posicion, 18 para el siguiente, y asi sucesivamente (n-1)\*(n/2)= 190.
