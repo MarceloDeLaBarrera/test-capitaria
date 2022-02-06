@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <p style="text-align:center;"> Listado de promedios por curso</p>
+
+    {% for query in queryset %}
+    <div class="row  py-3">
+        {% for c,v in query.items %}
+        <div class="col-lg-4">
+            {% if v|to_float %}
+            <p style="text-align:center;"> {{v|floatformat:1}} </p>
+            {% else %}
+            <p style="text-align:center;">{{v}}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <br>
+    <br>
+
+    <p style="text-align:center;"> Listado de promedios con mas de un curso con promedio menor a 4.</p>
+
+    {% for query in queryset2 %}
+    <div class="row  py-3">
+        {% for c,v in query.items %}
+        {% if c == 'cnt' %}
+        <!-- continue -->
+        {% else %}
+        <div class="col-lg-4">
+            {% if v|to_float %}
+            <p style="text-align:center;">{{v|floatformat:1}}</p>
+            {% else %}
+            <p style="text-align:center;">{{v}}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+
+    {% endfor %}
+
+    {% endblock content %}
+
+
+
+</body>
+
+</html>
