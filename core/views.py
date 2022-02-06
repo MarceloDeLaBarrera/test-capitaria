@@ -1,7 +1,7 @@
 from django.db.models import Avg, Count, Q
 from django.shortcuts import redirect, render
 from core.models import Alumno, Alumno_Curso, Alumno_Curso_Prueba, Profesor, Prueba, Curso
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -82,28 +82,35 @@ def mostrar_cursos(request):
     return render(request, 'cursos/cursos.html', context)
 
 
-class Curso_CreateView(CreateView):
+class CursoCreateView(CreateView):
     model = Curso
     fields = ('nombre_curso', 'profesor')
-    template_name = "cursos/cursos.html"
+    template_name = "cursos/agregarcurso.html"
     success_url = reverse_lazy('cursos')
 
 
-def agregar_curso(request):
-    nombre = request.POST["nombre"]
-    profesor = request.POST["profesor"]
-    cursos = Curso.objects.all().order_by("profesor_id")
-    curso = Curso.objects.create(
-        nombre_curso=nombre, profesor=profesor)
-    return redirect('alumnos')
+class CursoUpdateView(UpdateView):
+    model = Curso
+    fields = ('nombre_curso', 'profesor')
+    success_url = reverse_lazy('cursos')
+    template_name = "cursos/agregarcurso.html"
 
 
-def editar_alumno(request, id):
+class CursoDelete(DeleteView):
+    """From model Task, takes a id=pk and the object and render it on create_task, 
+    and when submit the form and method is POST, delete the task and redirect to tasklist.html (alias= tasks)"""
+    model = Curso
+    template_name = "cursos/eliminarcurso.html"
+    context_object_name = "curso"
+    success_url = reverse_lazy("cursos")
+
+
+def editar_curso(request, id):
     alumno = Alumno.objects.get(id=id)
-    return render(request, "alumnos/editaralumno.html", {"alumno": alumno})
+    return render(request, "cursos/editarcurso.html", {"alumno": alumno})
 
 
-def actualizar_alumno(request):
+def actualizar_curso(request):
     id = request.POST["id"]
     nombre = request.POST["nombre"]
     apellido = request.POST["apellido"]
@@ -118,7 +125,7 @@ def actualizar_alumno(request):
     return redirect('alumnos')
 
 
-def eliminar_alumno(request, id):
+def eliminar_curso(request, id):
     alumno = Alumno.objects.get(id=id)
     alumno.delete()
     return redirect('alumnos')

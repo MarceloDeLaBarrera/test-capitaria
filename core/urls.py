@@ -14,7 +14,13 @@ urlpatterns = [
 
 urlpatterns_grade = [
     path("cursos/", views.mostrar_cursos, name="cursos"),
-    path("crearcurso/", views.Curso_CreateView.as_view(), name="crear-curso"),
+    path("cursos/agregarcurso/",
+         views.CursoCreateView.as_view(), name="crear-curso"),
+    path('cursos/editar-curso/<int:pk>/',
+         views.CursoUpdateView.as_view(), name="editarcurso"),
+    path('actualizar-curso/', views.actualizar_curso, name="actualizarcurso"),
+    path('cursos/eliminar-curso/<int:pk>/',
+         views.CursoDelete.as_view(), name="eliminarcurso"),
 
 ]
 

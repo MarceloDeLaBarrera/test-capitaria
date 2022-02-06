@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-4">
+        <h1 style="text-align: center;">Agregar/Editar Cursos</h1>
+        <div class="card">
+            <div class=" card-body">
+                <div class="form-group ">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <table>
+                            {{form.as_table}}
+                        </table>
+                        <input type="submit" value="Enviar" class="form-control btn btn-block btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

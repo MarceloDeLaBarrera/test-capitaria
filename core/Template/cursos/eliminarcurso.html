@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Eliminar Curso {% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <form action="" method="POST">{% csrf_token %}
+        <p>Estas seguro que deseas eliminar el curso? ({{curso.nombre_curso}})</p>
+        <input class="btn btn-block btn-sm btn-danger" type="submit" value="Eliminar">
+    </form>
+    {% endblock %}
+</body>
+
+</html>

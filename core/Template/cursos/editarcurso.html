@@ -1,23 +1,24 @@
-{% extends "base.html" %}
-{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12">
+        <h1 style="text-align: center;">Agregar Cursos</h1>
+        <div class="card">
+            <div class=" card-body">
+                <div class="form-group ">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <table>
+                            {{form.as_table}}
+                        </table>
+                        <input type="submit" value="Agregar" class="form-control btn btn-block btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
-    <title>{% block title %}Cursos{% endblock %}</title>
-</head>
-
-<body>
-    {% block content %}
-
-
-
-    <div class="col-lg-12">
+    <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12">
         <h1>Listado de Cursos</h1>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -27,9 +28,6 @@
                         <th class="centrado">Nombre </th>
                         <th class="centrado">Profesor</th>
                         <th colspan="2" class="centrado">Opciones</th>
-                        <th class="centrado">
-                            <a href="{% url 'crear-curso' %}" class="btn btn-block btn-sm btn-primary">Agregar</a>
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,10 +36,8 @@
                         <td class="centrado">{{forloop.counter}}</td>
                         <td class="centrado">{{curso.nombre_curso}}</td>
                         <td class="centrado">{{curso.profesor}}</td>
-
                         <td class="centrado"><a href="{% url 'editarcurso' curso.id %}"
                                 class="btn btn-block btn-sm btn-primary">Editar</a></td>
-                        <td></td>
                         <td class="centrado"><a href="{% url 'eliminarcurso' curso.id %}"
                                 class="btn btn-block btn-sm btn-danger btn_eliminacion">Eliminar</a></td>
                     </tr>
@@ -50,15 +46,6 @@
             </table>
         </div>
     </div>
-    </div>
 
-
-    {% endblock %}
-
-
-    {% for alumno in alumnos %}
-    {{alumno}}
-    {% endfor %}
-</body>
-
-</html>
+</div>
+{% endblock %}
