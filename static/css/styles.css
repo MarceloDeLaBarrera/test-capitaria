@@ -8,9 +8,27 @@
     padding: 14px;
   }
 
-h1{
+h1,h5{
     text-align: center;
 }
+
+.contenedor_notas {
+    width:1fr 1fr 1fr;
+    border: 2px rgb(0, 0, 0) solid;
+	background-color: rgba(141, 141, 141, 0.897);
+    display: inline-block;
+    align-content: stretch;
+    align-items: flex-start;
+    }
+
+.divider-vertical-second-menu{
+    height: 40px;
+    width: 1px;
+    margin: 0 5px;
+    overflow: hidden;
+    background-color: #DDD;
+    border-right: 2px solid #FFF;
+     }
 
 
 body{ font-family: 'Roboto', sans-serif; }
