@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +13,62 @@
 </head>
 
 <body>
-    {% for nota in notas %}
-    {{nota}}
-    {% endfor %}
+    {% block content %}
 
-    {{notas.promedio}}
+
+
+    <div class="col-lg-12">
+        <h1>Listado de Notas</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="centrado">#</th>
+                        <th class="centrado">Nombre </th>
+                        <th class="centrado">Curso</th>
+                        <th class="centrado">Prueba</th>
+                        <th class="centrado">Nota</th>
+                        <th colspan="2" class="centrado">Opciones</th>
+                        <th class="centrado">
+                            <a href="{% url 'crear-curso' %}" class="btn btn-block btn-sm btn-primary">Agregar</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas%}
+                    <tr>
+                        <td class="centrado">{{forloop.counter}}</td>
+                        <td class="centrado">{{nota.nombre_alumno}}</td>
+                        <td class="centrado">{{nota.nombre_curso}}</td>
+                        <td class="centrado">{{nota.nombre_prueba}}</td>
+                        <td class="centrado">{{nota.nota}}</td>
+                        <td class="centrado"><a href="{% url 'editarcurso' nota.id %}"
+                                class="btn btn-block btn-sm btn-primary">Editar</a></td>
+                        <td></td>
+                        <td class="centrado"><a href="{% url 'eliminarcurso' nota.id %}"
+                                class="btn btn-block btn-sm btn-danger btn_eliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h6 class="centrado"><a href="{% url 'listadopromedionotas' %}"
+                                    class="btn btn-block btn-lg btn-dark">Listado de Promedios</a></h6>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}
+
 </body>
 
 </html>
