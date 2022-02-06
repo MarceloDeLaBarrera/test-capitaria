@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <title>{% block title %}Editar Alumno{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 style="text-align: center;">Editar Alumno</h1>
+            <div class="card">
+                <div class=" card-body">
+                    <div class="form-group ">
+                        <form action="/actualizar-alumno/" method="POST" id="actualizaralumno">
+                            {% csrf_token %}
+                            <input type="text" name="id" value="{{alumno.id}}" hidden>
+                            <input type="text" name="nombre" id="id_nombre" class="form-control"
+                                placeholder="Nombre alumno" required maxlength="70" minlength="2">
+                            <input type="text" name="apellido" id="id_apellido" class="form-control"
+                                placeholder="Apellido" required maxlength="70" minlength="2">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+
+                            <input type="telefono" name="telefono" id="id_telefono" class="form-control"
+                                placeholder="Telefono" maxlength="35" required>
+                            <input type="submit" value="Agregar" class="form-control btn btn-block btn-success">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>

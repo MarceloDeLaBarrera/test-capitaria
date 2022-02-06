@@ -9,27 +9,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='{% static "css/styles.css" %}'>
-    <title>{% block title %}Alumnos{% endblock %}</title>
+    <title>{% block title %}Cursos{% endblock %}</title>
 </head>
 
 <body>
     {% block content %}
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12">
-            <h1 style="text-align: center;">Agregar Alumnos</h1>
+            <h1 style="text-align: center;">Agregar Cursos</h1>
             <div class="card">
                 <div class=" card-body">
                     <div class="form-group ">
-                        <form action="/agregaralumno/" method="POST" class="was-validated" id="agregaralumno">
+                        <form method="POST" action="">
                             {% csrf_token %}
-                            <input type="text" name="nombre" id="id_nombre" class="form-control"
-                                placeholder="Nombre alumno" required maxlength="70" minlength="2">
-                            <input type="text" name="apellido" id="id_apellido" class="form-control"
-                                placeholder="Apellido" required maxlength="70" minlength="2">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required>
-
-                            <input type="telefono" name="telefono" id="id_telefono" class="form-control"
-                                placeholder="Telefono" maxlength="35" required>
+                            <table>
+                                {{form.as_table}}
+                            </table>
                             <input type="submit" value="Agregar" class="form-control btn btn-block btn-success">
                         </form>
                     </div>

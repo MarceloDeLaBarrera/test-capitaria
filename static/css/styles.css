@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+.centrado {
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 14px;
+  }
+
+h1{
+    text-align: center;
+}
+
+
+body{ font-family: 'Roboto', sans-serif; }
+
+.padre{ 
+    position: relative;
+    width: 100%;
+
+}
+.hijo {
+    position: absolute;
+    width: 960px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+.contenedor_agenda {
+    width: 960px;
+    border: 1px #cce solid;
+	background-color: rgba(182, 182, 182, 0.897);
+    display: inline-flex;
+    flex-direction: row; 
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: flex-start;
+    }
+  
+
+.menu {
+    flex: 0 1 auto;
+    -ms-flex-item-align: auto;
+    }
+
+.dia{ 
+	width: 12%; 
+    background-color: #309ec0;
+	color: #011afd;
+    height: 25px;
+    text-align: left;
+    padding:2px 2px; 
+    font-size: 14px;
+}
+.ico{ 
+	width: 8%; 
+    background-color: #309ec0;
+	color: #011afd;
+    height: 25px;
+    padding:2px 2px; 
+    font-size: 14px; 
+}
+.txtVerde{
+    color:#81b181;
+}
+.left{ text-align: left; padding-left: 5px; }
+.right{ text-align: right; padding-right: 5px; }
+
+.horaAgenda{ 
+	width: 8%; 
+	color:#000000;
+    font-size: 12px;
+	
+}
+.diaAgenda{ 
+    width: 12%; 
+    background-color: rgba(248, 248, 248, 0.924);
+    color: #011afd;
+    height: 25px;
+    text-align: center;
+    padding:2px 2px; 
+    font-size: 14px;
+    padding:5px 5px;
+}
+
+.diaAgenda > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+
+

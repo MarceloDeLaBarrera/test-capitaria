@@ -6,6 +6,7 @@ from core.models import Alumno, Alumno_Curso, Alumno_Curso_Prueba, Profesor, Pru
 
 class Alumno_Admin(admin.ModelAdmin):
     search_fields = ("nombre", "apellido")
+    list_display = ("id", "nombre", "apellido")
 
 
 class Profesor_Admin(admin.ModelAdmin):
