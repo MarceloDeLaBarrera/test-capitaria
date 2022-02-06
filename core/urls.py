@@ -18,7 +18,6 @@ urlpatterns_grade = [
          views.CursoCreateView.as_view(), name="crear-curso"),
     path('cursos/editar-curso/<int:pk>/',
          views.CursoUpdateView.as_view(), name="editarcurso"),
-    path('actualizar-curso/', views.actualizar_curso, name="actualizarcurso"),
     path('cursos/eliminar-curso/<int:pk>/',
          views.CursoDelete.as_view(), name="eliminarcurso"),
 

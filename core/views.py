@@ -54,8 +54,7 @@ def eliminar_alumno(request, id):
 # Vistas Notas
 
 def mostrar_notas(request):
-    notas = Alumno_Curso.objects.get_or_create()
-    notas2 = notas.alumno_curso_prueba_set.all()
+    notas = Alumno_Curso_Prueba.objects.all()
     context = {"notas": notas}
     return render(request, 'notas/notas.html', context)
 
@@ -103,33 +102,6 @@ class CursoDelete(DeleteView):
     template_name = "cursos/eliminarcurso.html"
     context_object_name = "curso"
     success_url = reverse_lazy("cursos")
-
-
-def editar_curso(request, id):
-    alumno = Alumno.objects.get(id=id)
-    return render(request, "cursos/editarcurso.html", {"alumno": alumno})
-
-
-def actualizar_curso(request):
-    id = request.POST["id"]
-    nombre = request.POST["nombre"]
-    apellido = request.POST["apellido"]
-    email = request.POST["email"]
-    telefono = request.POST["telefono"]
-    alumno = Alumno.objects.get(id=id)
-    alumno.nombre = nombre
-    alumno.apellido = apellido
-    alumno.email = email
-    alumno.telefono = telefono
-    alumno.save()
-    return redirect('alumnos')
-
-
-def eliminar_curso(request, id):
-    alumno = Alumno.objects.get(id=id)
-    alumno.delete()
-    return redirect('alumnos')
-
 
 # Vista Pruebas
 
