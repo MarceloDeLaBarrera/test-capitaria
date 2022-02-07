@@ -45,4 +45,9 @@ urlpatterns_scores = [
          views.NotaDelete.as_view(), name="eliminarnota"),
 ]
 
-urlpatterns += urlpatterns_grade+urlpatterns_tests+urlpatterns_scores
+urlpattern_calendar = [
+    path("agenda/", views.agenda, name="agenda"),
+]
+
+urlpatterns += urlpatterns_grade+urlpatterns_tests + \
+    urlpatterns_scores+urlpattern_calendar

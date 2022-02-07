@@ -166,3 +166,9 @@ class PruebaDelete(DeleteView):
     template_name = "pruebas/eliminarprueba.html"
     context_object_name = "prueba"
     success_url = reverse_lazy("pruebas")
+
+
+# Vista Agenda
+
+def agenda(request):
+    return render(request, 'agenda/agenda.html')
