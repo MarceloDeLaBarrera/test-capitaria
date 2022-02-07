@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block title %}Agenda{% endblock %}
+    <meta charset="utf-8">
+</head>
+{% block content %}
+<div class="padre">
+    <div class="hijo">
+        <div id="containerData"></div>
+    </div>
+</div>
+
+
+<script src='{% static "js/app.js" %}'></script>
+{% endblock %}
+
+</html>

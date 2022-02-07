@@ -12,13 +12,28 @@ h1,h5{
     text-align: center;
 }
 
+.col-lg-12{
+margin-top: 10px;
+}
+
+.row{
+    margin-top: 10px;
+}
+
 .contenedor_notas {
     width:1fr 1fr 1fr;
     border: 2px rgb(0, 0, 0) solid;
-	background-color: rgba(141, 141, 141, 0.897);
+	background-color: rgba(226,226,230);
     display: inline-block;
-    align-content: stretch;
-    align-items: flex-start;
+
+    }
+
+.notas_encabezado {
+    width:1fr 1fr 1fr;
+    border: 2px rgb(0, 0, 0) solid;
+    background-color: rgb(33,37,41);
+    display: inline-block;
+    color: rgb(255,255,255);
     }
 
 .divider-vertical-second-menu{
@@ -36,6 +51,7 @@ body{ font-family: 'Roboto', sans-serif; }
 .padre{ 
     position: relative;
     width: 100%;
+    margin-top: 10px;
 
 }
 .hijo {
