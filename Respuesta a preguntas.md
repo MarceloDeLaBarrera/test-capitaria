@@ -77,9 +77,10 @@ FROM core_alumno
 INNER JOIN core_alumno_curso ON core_alumno.id=core_alumno_curso.alumno_id
 INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
 WHERE nombre_curso='programacion';
-![image](https://user-images.githubusercontent.com/52224826/152755188-988d4c53-a64c-404a-ba9d-1270bb46ffe1.png)
 
 ```
+![image](https://user-images.githubusercontent.com/52224826/152755434-fb0e01d6-91ec-4851-a897-30149a5053de.png)
+
 
 P2=
 
@@ -92,6 +93,7 @@ INNER JOIN core_alumno_curso_prueba ON core_alumno_curso.id=core_alumno_curso_pr
 WHERE core_alumno.id=2 and nombre_curso='programacion'
 GROUP BY nombre, nombre_curso;
 ```
+![image](https://user-images.githubusercontent.com/52224826/152755825-63588e9b-d8bf-436c-b0bc-e3e2958cf1c4.png)
 
 P3=
 
@@ -103,6 +105,7 @@ INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
 INNER JOIN core_alumno_curso_prueba ON core_alumno_curso.id=core_alumno_curso_prueba.alumno_curso_id
 GROUP BY nombre, nombre_curso;
 ```
+![image](https://user-images.githubusercontent.com/52224826/152756006-14e2d9de-29b4-44ce-b7a6-a04055e0365f.png)
 
 P4=
 
@@ -114,6 +117,7 @@ INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
 INNER JOIN core_alumno_curso_prueba ON core_alumno_curso.id=core_alumno_curso_prueba.alumno_curso_id
 WHERE nota<4 GROUP BY nombre, nombre_curso HAVING COUNT(nombre)>1;
 ```
+![image](https://user-images.githubusercontent.com/52224826/152756174-4158fd88-e1bf-4895-b8af-3fbd279e74fd.png)
 
 P5=
 
