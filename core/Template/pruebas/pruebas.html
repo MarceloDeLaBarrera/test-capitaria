@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <title>{% block title %}Pruebas{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <div class="col-lg-12">
+        <h1>Listado de Cursos</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="centrado">#</th>
+                        <th class="centrado">Nombre Prueba </th>
+                        <th class="centrado">Curso</th>
+                        <th colspan="2" class="centrado">Opciones</th>
+                        <th class="centrado">
+                            <a href="{% url 'agregar-prueba' %}" class="btn btn-block btn-sm btn-success">Agregar</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prueba in pruebas%}
+                    <tr>
+                        <td class="centrado">{{forloop.counter}}</td>
+                        <td class="centrado">{{prueba.nombre_prueba}}</td>
+                        <td class="centrado">{{prueba.nombre_curso}}</td>
+
+                        <td class="centrado"><a href="{% url 'editarprueba' prueba.id %}"
+                                class="btn btn-block btn-sm btn-primary">Editar</a></td>
+                        <td></td>
+                        <td class="centrado"><a href="{% url 'eliminarprueba' prueba.id %}"
+                                class="btn btn-block btn-sm btn-danger btn_eliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>

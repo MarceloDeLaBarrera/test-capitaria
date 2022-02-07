@@ -25,6 +25,12 @@ urlpatterns_grade = [
 
 urlpatterns_tests = [
     path("pruebas/", views.mostrar_pruebas, name="pruebas"),
+    path('agregarprueba',
+         views.PruebaCreateView.as_view(), name="agregar-prueba"),
+    path('pruebas/editar-prueba/<int:pk>/',
+         views.CursoUpdateView.as_view(), name="editarprueba"),
+    path('pruebas/eliminar-prueba/<int:pk>/',
+         views.CursoDelete.as_view(), name="eliminarprueba"),
 ]
 
 urlpatterns_scores = [

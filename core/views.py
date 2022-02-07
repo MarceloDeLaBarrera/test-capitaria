@@ -107,42 +107,27 @@ class CursoDelete(DeleteView):
 
 
 def mostrar_pruebas(request):
-    alumnos = Alumno.objects.all().order_by("nombre")
-    context = {"alumnos": alumnos}
-    return render(request, 'alumnos/alumnos.html', context)
+    pruebas = Prueba.objects.all().order_by("nombre_prueba")
+    context = {"pruebas": pruebas}
+    return render(request, 'pruebas/pruebas.html', context)
 
 
-def agregar_alumno(request):
-    nombre = request.POST["nombre"]
-    apellido = request.POST["apellido"]
-    email = request.POST["email"]
-    telefono = request.POST["telefono"]
-    alumno = Alumno.objects.create(
-        nombre=nombre, apellido=apellido, email=email, telefono=telefono)
-    return redirect('alumnos')
+class PruebaCreateView(CreateView):
+    model = Prueba
+    fields = ('nombre_prueba', 'curso')
+    template_name = "pruebas/agregarprueba.html"
+    success_url = reverse_lazy('pruebas')
 
 
-def editar_alumno(request, id):
-    alumno = Alumno.objects.get(id=id)
-    return render(request, "alumnos/editaralumno.html", {"alumno": alumno})
+class PruebaUpdateView(UpdateView):
+    model = Prueba
+    fields = ('nombre_prueba', 'curso')
+    success_url = reverse_lazy('pruebas')
+    template_name = "pruebas/agregarprueba.html"
 
 
-def actualizar_alumno(request):
-    id = request.POST["id"]
-    nombre = request.POST["nombre"]
-    apellido = request.POST["apellido"]
-    email = request.POST["email"]
-    telefono = request.POST["telefono"]
-    alumno = Alumno.objects.get(id=id)
-    alumno.nombre = nombre
-    alumno.apellido = apellido
-    alumno.email = email
-    alumno.telefono = telefono
-    alumno.save()
-    return redirect('alumnos')
-
-
-def eliminar_alumno(request, id):
-    alumno = Alumno.objects.get(id=id)
-    alumno.delete()
-    return redirect('alumnos')
+class PruebaDelete(DeleteView):
+    model = Prueba
+    template_name = "pruebas/eliminarprueba.html"
+    context_object_name = "prueba"
+    success_url = reverse_lazy("pruebas")
