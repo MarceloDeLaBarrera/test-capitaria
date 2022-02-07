@@ -25,18 +25,24 @@ urlpatterns_grade = [
 
 urlpatterns_tests = [
     path("pruebas/", views.mostrar_pruebas, name="pruebas"),
-    path('agregarprueba',
+    path('agregarprueba/',
          views.PruebaCreateView.as_view(), name="agregar-prueba"),
     path('pruebas/editar-prueba/<int:pk>/',
-         views.CursoUpdateView.as_view(), name="editarprueba"),
+         views.PruebaUpdateView.as_view(), name="editarprueba"),
     path('pruebas/eliminar-prueba/<int:pk>/',
-         views.CursoDelete.as_view(), name="eliminarprueba"),
+         views.PruebaDelete.as_view(), name="eliminarprueba"),
 ]
 
 urlpatterns_scores = [
     path("notas/", views.mostrar_notas, name="notas"),
     path("listado-promedio-notas/", views.listar_promedionotas,
          name="listadopromedionotas"),
+    path('agregarnota/',
+         views.NotaCreateView.as_view(), name="agregar-nota"),
+    path('notas/editar-nota/<int:pk>/',
+         views.NotaUpdateView.as_view(), name="editarnota"),
+    path('notas/eliminar-nota/<int:pk>/',
+         views.NotaDelete.as_view(), name="eliminarnota"),
 ]
 
 urlpatterns += urlpatterns_grade+urlpatterns_tests+urlpatterns_scores

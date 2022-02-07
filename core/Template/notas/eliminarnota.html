@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Eliminar Prueba {% endblock %}</title>
+    <title>{% block title %}Eliminar Nota {% endblock %}</title>
 </head>
 
 <body>
     {% block content %}
     <form action="" method="POST">{% csrf_token %}
-        <p>Estas seguro que deseas eliminar la prueba? ({{prueba.nombre_prueba}})</p>
+        <p>Estas seguro que deseas eliminar la nota de {{nota.nombre_alumno}}?. Nota= {{nota.nota}}</p>
         <input class="btn btn-block btn-sm btn-danger" type="submit" value="Eliminar">
     </form>
     {% endblock %}

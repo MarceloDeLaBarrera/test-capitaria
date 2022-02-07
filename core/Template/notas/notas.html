@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}Notas {% endblock %}</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                         <th class="centrado">Nota</th>
                         <th colspan="2" class="centrado">Opciones</th>
                         <th class="centrado">
-                            <a href="{% url 'crear-curso' %}" class="btn btn-block btn-sm btn-success">Agregar</a>
+                            <a href="{% url 'agregar-nota' %}" class="btn btn-block btn-sm btn-success">Agregar</a>
                         </th>
                     </tr>
                 </thead>
@@ -42,10 +42,10 @@
                         <td class="centrado">{{nota.nombre_curso}}</td>
                         <td class="centrado">{{nota.nombre_prueba}}</td>
                         <td class="centrado">{{nota.nota}}</td>
-                        <td class="centrado"><a href="{% url 'editarcurso' nota.id %}"
+                        <td class="centrado"><a href="{% url 'editarnota' nota.id %}"
                                 class="btn btn-block btn-sm btn-primary">Editar</a></td>
                         <td></td>
-                        <td class="centrado"><a href="{% url 'eliminarcurso' nota.id %}"
+                        <td class="centrado"><a href="{% url 'eliminarnota' nota.id %}"
                                 class="btn btn-block btn-sm btn-danger btn_eliminacion">Eliminar</a></td>
                     </tr>
                     {% endfor %}

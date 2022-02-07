@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<title>{% block title %}Agregar/Editar Curso {% endblock %}</title>
+<title>{% block title %}Agregar/Editar Nota {% endblock %}</title>
 <div class="row">
     <div class="col-lg-4">
     </div>
     <div class="col-lg-4">
-        <h1 style="text-align: center;">Agregar/Editar Cursos</h1>
+        <h1 style="text-align: center;">Agregar/Editar Notas</h1>
         <div class="card">
             <div class=" card-body">
                 <div class="form-group ">
@@ -14,6 +14,7 @@
                         {% csrf_token %}
                         <table>
                             {{form.as_table}}
+
                         </table>
                         <input type="submit" value="Enviar" class="form-control btn btn-block btn-success">
                     </form>

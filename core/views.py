@@ -1,5 +1,5 @@
 from django.db.models import Avg, Count, Q
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from core.models import Alumno, Alumno_Curso, Alumno_Curso_Prueba, Profesor, Prueba, Curso
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -70,6 +70,41 @@ def listar_promedionotas(request):
     context = {"queryset": promedios_por_curso,
                "queryset2": promedio_menor_a_4}
     return render(request, 'notas/listarpromedionotas.html', context)
+
+
+def agregar_notas(request):
+    nombre = request.POST["nombre_alumno"]
+    curso = request.POST["curso"]
+    prueba = request.POST["prueba"]
+    nota = request.POST["nota"]
+    notas = Alumno_Curso_Prueba.objects.create(
+        nombre=nombre, curso=curso, prueba=prueba, nota=nota)
+    if request.method == 'POST':
+        selected_item = get_object_or_404(
+            Alumno_Curso_Prueba, pk=request.POST.get('id'))
+
+    return redirect('alumnos')
+
+
+class NotaCreateView(CreateView):
+    model = Alumno_Curso_Prueba
+    fields = ('prueba', 'nota', "alumno_curso")
+    template_name = "notas/agregarnota.html"
+    success_url = reverse_lazy('notas')
+
+
+class NotaUpdateView(UpdateView):
+    model = Alumno_Curso_Prueba
+    fields = ('prueba', 'nota')
+    success_url = reverse_lazy('notas')
+    template_name = "notas/agregarnota.html"
+
+
+class NotaDelete(DeleteView):
+    model = Alumno_Curso_Prueba
+    template_name = "notas/eliminarnota.html"
+    context_object_name = "nota"
+    success_url = reverse_lazy("notas")
 
 
 # Vistas Cursos
