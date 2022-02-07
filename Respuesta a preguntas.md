@@ -12,24 +12,24 @@ USE colegio;
 
 CREATE TABLE IF NOT EXISTS alumno (
 id_alumno INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-email VARCHAR(80) NOT NULL,
-telefono VARCHAR(30),
+nombre VARCHAR(70) NOT NULL,
+apellido VARCHAR(70) NOT NULL,
+email VARCHAR(200) NOT NULL,
+telefono VARCHAR(35),
 );
 
 CREATE TABLE IF NOT EXISTS profesor (
 id_profesor INT UNSIGNED NOT NULL AUTO_INCREMENT,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-email VARCHAR(80) NOT NULL,
-telefono VARCHAR(30),
+nombre VARCHAR(70) NOT NULL,
+apellido VARCHAR(70) NOT NULL,
+email VARCHAR(200) NOT NULL,
+telefono VARCHAR(35),
 PRIMARY KEY (id_profesor)
 );
 
 CREATE TABLE IF NOT EXISTS curso (
 id_curso INT UNSIGNED NOT NULL AUTO_INCREMENT,
-nombre_curso VARCHAR(50) NOT NULL,
+nombre_curso VARCHAR(100) NOT NULL,
 id_profesor INT UNSIGNED NOT NULL,
 PRIMARY KEY (id_curso),
 FOREIGN KEY (id_profesor) REFERENCES profesor (id_profesor)
@@ -39,15 +39,21 @@ ON DELETE NO ACTION ON UPDATE NO ACTION
 CREATE TABLE IF NOT EXISTS alumno_curso (
 id_alumno_curso INT UNSIGNED NOT NULL AUTO_INCREMENT,
 id_alumno INT UNSIGNED NOT NULL,
+id_curso INT UNSIGNED NOT NULL,
 PRIMARY KEY (id_alumno_curso),
 FOREIGN KEY (id_alumno) REFERENCES alumno (id_alumno)
+ON DELETE NO ACTION ON UPDATE NO ACTION,
+FOREIGN KEY (id_curso) REFERENCES curso (id_curso)
 ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS prueba (
 id_prueba INT UNSIGNED NOT NULL AUTO_INCREMENT,
 nombre_prueba VARCHAR(50) NOT NULL,
-PRIMARY KEY (id_prueba)
+id_curso INT UNSIGNED NOT NULL,
+PRIMARY KEY (id_prueba),
+FOREIGN KEY (id_curso) REFERENCES curso (id_curso)
+ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS alumno_curso_prueba (
@@ -120,7 +126,8 @@ B)190... Esto se debe ya que al hacer consultas multitablas sin join se obtienen
 P1.- CRUD alumnos, cursos, pruebas y notas.
 
 All the views of the crud are on the views.py file.
-[views.py](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/core/views.py)
+
+- [Views](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/core/views.py)
 
 [fotos de vistas]
 
@@ -138,8 +145,8 @@ P3.- Filtar a todos los alumnos con más de un ramo con promedio rojo.
 
 The files releated to calendar are app.js, agenda.html, and styles.css.
 
-[Agenda.html](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/core/Template/agenda/agenda.html)
-[Agenda JS](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/js/app.js)
-[Styles](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/css/styles.css)
+- [Agenda.html](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/core/Template/agenda/agenda.html)
+- [Agenda JS](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/js/app.js)
+- [Styles](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/css/styles.css)
 
 [foto]

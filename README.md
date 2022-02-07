@@ -1,4 +1,4 @@
-# Capitaria Test School Management System
+# Capitaria Test
 
 _This is a Crud Project, a school management system, where you can create, edit, delete and update courses, students, scores and test. Also, you could see the average scores of each student of each course, and filter the ones that are failing. Also, has the prototype of a hour reservation system._
 
@@ -76,7 +76,7 @@ _5.- To fill the database with the data used on this project for test, you can r
 ```
 python manage.py loaddata .\core\fixtures\database.json
 
-_Note: Also, if the last one doesn't works, you can try: " python manage.py loaddata " or " python manage.py loaddata database.json " should be find the file, because django search on fixtures directories._
+Note: Also, if the last one doesn't works, you can try: " python manage.py loaddata " or " python manage.py loaddata database.json " should be find the file, because django search on fixtures directories.
 ```
 
 _6. Finally, run server on your local machine._
