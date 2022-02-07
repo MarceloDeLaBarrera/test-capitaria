@@ -94,7 +94,7 @@ python manage.py runserver
 
 ## Answers of Questions ⭐
 
-[Answers](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/Respuesta%20a%20preguntas.md)
+[Answers](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/master/Respuesta%20a%20preguntas.md)
 
 ## Autor ✒️
 
