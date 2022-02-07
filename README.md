@@ -8,7 +8,7 @@ _This is a Crud Project, a school management system, where you can create, edit,
 - [Requeriments](#requeriments-)
 - [Install and Run the project](#Install-and-Run-the-project-)
 - [Built in](#built-in-%EF%B8%8F)
-- [Answers of Questions](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/Respuesta%20a%20preguntas.md)
+- [Answers of Questions](#answers-of-questions-)
 - [Autor](#autor-%EF%B8%8F)
 
 ## Starting 🚀
@@ -91,6 +91,10 @@ python manage.py runserver
 - [Python](https://www.python.org/)
 - [HTML](https://)
 - [CSS](http://)
+
+## Answers of Questions ⭐
+
+[Answers](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/Respuesta%20a%20preguntas.md)
 
 ## Autor ✒️
 
