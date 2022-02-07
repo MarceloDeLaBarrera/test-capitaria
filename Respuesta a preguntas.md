@@ -144,7 +144,7 @@ _Some views render on templates:_
 P2.- Listar a los alumnos junto a su promedio de notas.
 
 ![image](https://user-images.githubusercontent.com/52224826/152754399-f314a128-5642-44ca-be79-d371f7213e3f.png)
-![image](https://user-images.githubusercontent.com/52224826/152768530-1ab60475-aeb6-4049-9fcc-3fb0c686db3a.png)
+![image](https://user-images.githubusercontent.com/52224826/152769842-49390b18-9865-408b-84cb-7bd235d71787.png)
 ![image](https://user-images.githubusercontent.com/52224826/152754168-12d57bff-3021-4e54-b652-fdbe3b162c53.png)
 
 
