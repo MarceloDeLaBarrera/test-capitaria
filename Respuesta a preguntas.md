@@ -4,7 +4,7 @@ _Nota: La query de creacion de tablas fue realizada en MySQL manualmente. Las Qu
 
 _Foto del Modelado:_
 
-[foto]
+![ModeladoCapitaria2](https://user-images.githubusercontent.com/52224826/152753561-4e6139bc-a73b-44c7-ae2b-83e409eb9e1d.jpg)
 
 ```
 CREATE DATABASE colegio;
@@ -133,13 +133,16 @@ All the views of the crud are on the views.py file.
 
 P2.- Listar a los alumnos junto a su promedio de notas.
 
-[foto codigo]
-[foto mostrando]
+![image](https://user-images.githubusercontent.com/52224826/152754399-f314a128-5642-44ca-be79-d371f7213e3f.png)
+![image](https://user-images.githubusercontent.com/52224826/152754168-12d57bff-3021-4e54-b652-fdbe3b162c53.png)
+
+
+
 
 P3.- Filtar a todos los alumnos con más de un ramo con promedio rojo.
 
-[foto codigo]
-[foto mostrando]
+![image](https://user-images.githubusercontent.com/52224826/152754467-c9b8a1bb-e18d-4bc2-860f-d152700bbe03.png)
+![image](https://user-images.githubusercontent.com/52224826/152754044-45ffb2ae-9670-4c97-be48-6157fbf06471.png)
 
 # Frontend
 
@@ -149,4 +152,4 @@ The files releated to calendar are app.js, agenda.html, and styles.css.
 - [Agenda JS](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/js/app.js)
 - [Styles](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/static/css/styles.css)
 
-[foto]
+![image](https://user-images.githubusercontent.com/52224826/152754599-a2800d2c-7ed1-4815-a202-ecba038033eb.png)
