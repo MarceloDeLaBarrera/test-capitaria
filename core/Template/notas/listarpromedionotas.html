@@ -14,18 +14,15 @@
 
 <body>
     {% block content %}
-    <div class="row py-5">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
             <input type="submit" value="Mostrar promedios por curso" name="mostrarpromedio"
                 class="btn btn-success btn-lg mt-1 ml-4" onclick="mostrar()" id="botonverde">
-
             <input type="submit" value="Mostrar promedios con mas de 1 curso rojo" name="mostrarpromedio"
                 class="btn btn-danger btn-lg mt-1 ml-4" onclick="mostrar2()" id="botonrojo">
-
         </div>
     </div>
-    </table>
     <div id="row-promedio" style="display: none;">
 
         <p style="text-align:center;">
@@ -62,6 +59,7 @@
     </div>
 
     <div id="row-promedio2" style="display: none;">
+        <p style="text-align:center;">
         <h5>Listado de promedios con mas de un curso con promedio menor a 4.</h5>
         </p>
         <div class="row py-3">
