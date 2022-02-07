@@ -74,6 +74,9 @@ class Prueba(models.Model):
     def nombre_curso(self):
         return self.curso.nombre_curso
 
+    def __str__(self):
+        return str(self.nombre_prueba)
+
     class Meta:
         ordering = ['id']
 
@@ -86,7 +89,7 @@ class Alumno_Curso_Prueba(models.Model):
     nota = models.FloatField(blank=True, null=True)
 
     def __str__(self):
-        return f"{str(self.nota)} {self.alumno_curso.alumno.nombre}"
+        return self.alumno_curso.alumno.nombre, str(self.nota)
 
     @property
     def nombre_prueba(self):
@@ -99,10 +102,6 @@ class Alumno_Curso_Prueba(models.Model):
     @property
     def nombre_curso(self):
         return self.alumno_curso.curso.nombre_curso
-
-    @property
-    def array_nombres(self):
-        self.al
 
     class Meta:
         ordering = ['id']
