@@ -145,7 +145,7 @@ P2.- Listar a los alumnos junto a su promedio de notas.
 
 ![image](https://user-images.githubusercontent.com/52224826/152754399-f314a128-5642-44ca-be79-d371f7213e3f.png)
 ![image](https://user-images.githubusercontent.com/52224826/152769842-49390b18-9865-408b-84cb-7bd235d71787.png)
-![image](https://user-images.githubusercontent.com/52224826/152754168-12d57bff-3021-4e54-b652-fdbe3b162c53.png)
+![image](https://user-images.githubusercontent.com/52224826/152771246-cb5d708c-b2bd-4d91-b1c7-d9a9b42b00d6.png)
 
 
 
@@ -153,7 +153,7 @@ P2.- Listar a los alumnos junto a su promedio de notas.
 P3.- Filtar a todos los alumnos con más de un ramo con promedio rojo.
 
 ![image](https://user-images.githubusercontent.com/52224826/152754467-c9b8a1bb-e18d-4bc2-860f-d152700bbe03.png)
-![image](https://user-images.githubusercontent.com/52224826/152754044-45ffb2ae-9670-4c97-be48-6157fbf06471.png)
+![image](https://user-images.githubusercontent.com/52224826/152771343-33351bc0-c6a8-4534-8122-aa1ff120c48f.png)
 
 # Frontend
 
