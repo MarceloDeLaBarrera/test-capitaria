@@ -1,6 +1,6 @@
-from django.db.models import Avg, Count, Q
-from django.shortcuts import get_object_or_404, redirect, render
-from core.models import Alumno, Alumno_Curso, Alumno_Curso_Prueba, Profesor, Prueba, Curso
+from django.db.models import Avg, Count
+from django.shortcuts import redirect, render
+from core.models import Alumno, Alumno_Curso_Prueba, Prueba, Curso
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -70,20 +70,6 @@ def listar_promedionotas(request):
     context = {"queryset": promedios_por_curso,
                "queryset2": promedio_menor_a_4}
     return render(request, 'notas/listarpromedionotas.html', context)
-
-
-def agregar_notas(request):
-    nombre = request.POST["nombre_alumno"]
-    curso = request.POST["curso"]
-    prueba = request.POST["prueba"]
-    nota = request.POST["nota"]
-    notas = Alumno_Curso_Prueba.objects.create(
-        nombre=nombre, curso=curso, prueba=prueba, nota=nota)
-    if request.method == 'POST':
-        selected_item = get_object_or_404(
-            Alumno_Curso_Prueba, pk=request.POST.get('id'))
-
-    return redirect('alumnos')
 
 
 class NotaCreateView(CreateView):
