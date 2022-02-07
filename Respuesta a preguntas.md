@@ -77,6 +77,8 @@ FROM core_alumno
 INNER JOIN core_alumno_curso ON core_alumno.id=core_alumno_curso.alumno_id
 INNER JOIN core_curso ON core_curso.id=core_alumno_curso.curso_id
 WHERE nombre_curso='programacion';
+![image](https://user-images.githubusercontent.com/52224826/152755188-988d4c53-a64c-404a-ba9d-1270bb46ffe1.png)
+
 ```
 
 P2=
