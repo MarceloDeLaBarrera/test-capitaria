@@ -1233,7 +1233,7 @@
   "model": "core.prueba",
   "pk": 1,
   "fields": {
-    "nombre_prueba": "programaci¾n",
+    "nombre_prueba": "programacion",
     "curso": 1
   }
 },
@@ -1241,7 +1241,7 @@
   "model": "core.prueba",
   "pk": 2,
   "fields": {
-    "nombre_prueba": "programaci¾n 2",
+    "nombre_prueba": "programacion 2",
     "curso": 1
   }
 },
@@ -1249,7 +1249,7 @@
   "model": "core.prueba",
   "pk": 3,
   "fields": {
-    "nombre_prueba": "programaci¾n 3",
+    "nombre_prueba": "programacion 3",
     "curso": 1
   }
 },
@@ -1273,7 +1273,7 @@
   "model": "core.prueba",
   "pk": 6,
   "fields": {
-    "nombre_prueba": "matemßtica",
+    "nombre_prueba": "matematica",
     "curso": 3
   }
 },
@@ -1281,7 +1281,7 @@
   "model": "core.prueba",
   "pk": 7,
   "fields": {
-    "nombre_prueba": "matemßtica 2",
+    "nombre_prueba": "matematica 2",
     "curso": 3
   }
 },
@@ -1321,7 +1321,7 @@
   "model": "core.prueba",
   "pk": 12,
   "fields": {
-    "nombre_prueba": "geografÝa 1",
+    "nombre_prueba": "geografia 1",
     "curso": 6
   }
 },
@@ -1329,7 +1329,7 @@
   "model": "core.prueba",
   "pk": 13,
   "fields": {
-    "nombre_prueba": "geografÝa 2",
+    "nombre_prueba": "geografia 2",
     "curso": 6
   }
 },

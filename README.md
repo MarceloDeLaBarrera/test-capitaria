@@ -74,9 +74,9 @@ python manage.py createsuperuser
 _5.- To fill the database with the data used on this project for test, you can run THIS on the Project Directory:_
 
 ```
-python manage.py loaddata .\core\fixtures\database.json
+python manage.py loaddata python manage.py loaddata database.json
 
-Note: Also, if the last one doesn't works, you can try: " python manage.py loaddata " or " python manage.py loaddata database.json " should be find the file, because django search on fixtures directories.
+Note: Also, if the last one doesn't works, you can try: " .\core\fixtures\database.json " should be find the file, because django search on fixtures directories.
 ```
 
 _6. Finally, run server on your local machine._
