@@ -1,3 +1,5 @@
+/*Genera matriz de horas en los rangos de hora de inicio y termino*/
+
 function generaMatriz(Ini, Fin) {
   var ArrAgenda = [];
   Ini = Ini.split(":");
@@ -18,6 +20,8 @@ function generaMatriz(Ini, Fin) {
   return ArrAgenda;
 }
 
+/* Verifica dia ira printeando segun el dia y hora correspondiente si la hora dentro del obj Json esta dentro del rango de hora inicio y hora termino. 
+Si no lo esta, printeará el icono verde de espacio disponible */
 function VerificaDia(Dia, Hora, citas) {
   var txt = "<i class='icon ion-plus-circled txtVerde'></i>  ";
   var obj = JSON.parse(citas);
@@ -233,6 +237,7 @@ function GeneraHtml(MatrizHrs, citas) {
   return Header + Body;
 }
 
+/*Calcula hora de inicio y termino y los almacena en un array para luego utilizarlos en generarmatriz*/
 function CalculaRangos(citas) {
   var obj = JSON.parse(citas);
   var arrayRangos = [];
