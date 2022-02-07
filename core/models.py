@@ -46,9 +46,9 @@ class Curso(models.Model):
 
 class Alumno_Curso(models.Model):
     alumno = models.ForeignKey(
-        Alumno, on_delete=models.SET_NULL, null=True)
+        Alumno, on_delete=models.CASCADE, null=False)
     curso = models.ForeignKey(
-        Curso, on_delete=models.SET_NULL, null=True)
+        Curso, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return str(self.id)
@@ -68,7 +68,7 @@ class Alumno_Curso(models.Model):
 class Prueba(models.Model):
     nombre_prueba = models.CharField(max_length=60)
     curso = models.ForeignKey(
-        Curso, on_delete=models.SET_NULL, null=True)
+        Curso, on_delete=models.CASCADE, null=False)
 
     @property
     def nombre_curso(self):
@@ -83,9 +83,9 @@ class Prueba(models.Model):
 
 class Alumno_Curso_Prueba(models.Model):
     alumno_curso = models.ForeignKey(
-        Alumno_Curso, on_delete=models.SET_NULL, null=True)
+        Alumno_Curso, on_delete=models.CASCADE, null=False)
     prueba = models.ForeignKey(
-        Prueba, on_delete=models.SET_NULL, null=True)
+        Prueba, on_delete=models.CASCADE, null=False)
     nota = models.FloatField(blank=True, null=True)
 
     def __str__(self):
