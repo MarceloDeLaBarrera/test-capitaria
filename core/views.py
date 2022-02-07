@@ -117,8 +117,6 @@ class CursoUpdateView(UpdateView):
 
 
 class CursoDelete(DeleteView):
-    """From model Task, takes a id=pk and the object and render it on create_task, 
-    and when submit the form and method is POST, delete the task and redirect to tasklist.html (alias= tasks)"""
     model = Curso
     template_name = "cursos/eliminarcurso.html"
     context_object_name = "curso"
