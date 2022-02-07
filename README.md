@@ -91,6 +91,7 @@ python manage.py runserver
 - [Python](https://www.python.org/)
 - [HTML](https://)
 - [CSS](http://)
+- [Javascript](https://www.javascript.com/)
 
 ## Answers of Questions ⭐
 
