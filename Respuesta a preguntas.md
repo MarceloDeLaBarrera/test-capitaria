@@ -135,7 +135,11 @@ All the views of the crud are on the views.py file.
 
 - [Views](https://github.com/MarceloDeLaBarrera/test-capitaria/blob/develop/core/views.py)
 
-[fotos de vistas]
+_Some views render on templates:_
+![image](https://user-images.githubusercontent.com/52224826/152756588-57078f0e-2e09-4255-a737-f7432ade5dc1.png)
+![image](https://user-images.githubusercontent.com/52224826/152756666-25933ea8-881d-4f77-ae6c-bf32bbaf007e.png)
+
+
 
 P2.- Listar a los alumnos junto a su promedio de notas.
 
