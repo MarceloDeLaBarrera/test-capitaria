@@ -20,167 +20,73 @@ function generaMatriz(Ini, Fin) {
   return ArrAgenda;
 }
 
-/* Verifica dia ira printeando segun el dia y hora correspondiente si la hora dentro del obj Json esta dentro del rango de hora inicio y hora termino. 
-Si no lo esta, printeará el icono verde de espacio disponible */
+/*Verifica hora, compara entre todas la horas almacenadas en la matriz y las horas reservadas dentro del obj Json. Ademas recibe como parametro un indicador de posicion para identificar un dia. 
+Si se cumplen condiciones, retornará en txt al reservante, si no, retornará icono verde para reservar.*/
+function verificahora(Hora, obj, pos) {
+  var days = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  var txt = "<i class='icon ion-plus-circled txtVerde'></i>  ";
+  for (var i in obj) {
+    for (var x in obj[i]) {
+      var arHora1 = obj[i][x].start_time.split(":");
+      var arHora2 = obj[i][x].end_time.split(":");
+      var arHora3 = Hora.split(":");
+      var mm1 = parseInt(arHora1[1], 10);
+      var mm2 = parseInt(arHora2[1], 10);
+      var mm3 = parseInt(arHora3[1], 10);
+      var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
+      var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
+      var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
+      if (i === days[pos])
+        if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
+          txt =
+            "<i class='icon ion-calendar'> " +
+            "<strong>" +
+            obj[i][x].name +
+            "</strong>" +
+            "</i>";
+    }
+  }
+  return txt;
+}
+
+/* Verifica dia ira printeando segun el dia y hora correspondiente.*/
 function VerificaDia(Dia, Hora, citas) {
   var txt = "<i class='icon ion-plus-circled txtVerde'></i>  ";
   var obj = JSON.parse(citas);
 
-  if (Dia === 6 || Dia === 7) var txt = "<i></i>  ";
-
   if (Dia === 1)
     //Lunes
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "monday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt =
-              "<i class='icon ion-calendar'> " +
-              "<strong>" +
-              obj[i][x].name +
-              "</strong>" +
-              "</i>";
-      }
-    }
+    txt = verificahora(Hora, obj, 0);
   if (Dia === 2)
     //Martes
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "tuesday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt =
-              "<i class='icon ion-calendar'> " +
-              "<strong>" +
-              obj[i][x].name +
-              "</strong>" +
-              "</i>";
-      }
-    }
+    txt = verificahora(Hora, obj, 1);
   if (Dia === 3)
     //Miercoles
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "wednesday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt =
-              "<i class='icon ion-calendar'> " +
-              "<strong>" +
-              obj[i][x].name +
-              "</strong>" +
-              "</i>";
-      }
-    }
+    txt = verificahora(Hora, obj, 2);
   if (Dia === 4)
     //Jueves
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "thursday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt =
-              "<i class='icon ion-calendar'> " +
-              "<strong>" +
-              obj[i][x].name +
-              "</strong>" +
-              "</i>";
-      }
-    }
+    txt = verificahora(Hora, obj, 3);
   if (Dia === 5)
     //Viernes
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "friday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt =
-              "<i class='icon ion-calendar'> " +
-              "<strong>" +
-              obj[i][x].name +
-              "</strong>" +
-              "</i>";
-      }
-    }
+    txt = verificahora(Hora, obj, 4);
   if (Dia === 6)
     //Sabado
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "saturday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1)) {
-            txt =
-              "<i class='icon ion-calendar'></i> " + obj[i][x].name + "</i>";
-          }
-      }
-    }
+    txt = verificahora(Hora, obj, 5);
   if (Dia === 7)
     //Domingo
-    for (var i in obj) {
-      for (var x in obj[i]) {
-        var arHora1 = obj[i][x].start_time.split(":");
-        var arHora2 = obj[i][x].end_time.split(":");
-        var arHora3 = Hora.split(":");
-        var mm1 = parseInt(arHora1[1], 10);
-        var mm2 = parseInt(arHora2[1], 10);
-        var mm3 = parseInt(arHora3[1], 10);
-        var hh1 = parseInt(arHora1[0], 10) * 60 + mm1;
-        var hh2 = parseInt(arHora2[0], 10) * 60 + mm2;
-        var hh3 = parseInt(arHora3[0], 10) * 60 + mm3;
-        if (i === "sunday")
-          if (hh3 === hh1 || (hh2 >= hh3 && hh3 >= hh1))
-            txt = "<i class='icon ion-calendar'></i> " + obj[i][x].name;
-      }
-    }
+    txt = verificahora(Hora, obj, 6);
+
+  if (Dia === 6 || Dia === 7)
+    //Sabado o Domingo
+    txt = "<i></i>  ";
 
   return txt;
 }
